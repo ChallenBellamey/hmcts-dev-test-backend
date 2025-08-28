@@ -11,10 +11,9 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Getter
 @Setter
-public class ExampleCase {
+public class Task {
 
     private int id;
-    private String caseNumber;
     private String title;
     private String description;
     private String status;
