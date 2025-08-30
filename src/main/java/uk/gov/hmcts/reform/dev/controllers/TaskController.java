@@ -11,6 +11,9 @@ import uk.gov.hmcts.reform.dev.models.Task;
 import uk.gov.hmcts.reform.dev.models.TaskService;
 
 import static org.springframework.http.ResponseEntity.ok;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 @RestController
 @RequestMapping("")
@@ -28,4 +31,10 @@ public class TaskController {
             taskService.getAllTasks()
         );
     }
+
+    @PostMapping(value = "/tasks")
+    public void addTask(@RequestBody Task task) {
+        taskService.addTask(task);
+    }
+    
 }
