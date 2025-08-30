@@ -16,12 +16,12 @@ public class TaskService {
         this.taskRepository = taskRepository;
     }
 
-    public List<Task> getAllTasks() {
-        return taskRepository.findAll();
+    public Optional<Task> getTaskById(Integer id) {
+        return taskRepository.findById(id);
     }
 
-    public Optional<Task> getTask(Integer id) {
-        return taskRepository.findById(id);
+    public List<Task> getAllTasks() {
+        return taskRepository.findAll();
     }
 
     public void addTask(Task task) {
