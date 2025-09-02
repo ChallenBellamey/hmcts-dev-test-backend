@@ -1,7 +1,6 @@
 package uk.gov.hmcts.reform.dev.models;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -16,8 +15,9 @@ public class TaskService {
         this.taskRepository = taskRepository;
     }
 
-    public Optional<Task> getTaskById(Integer id) {
-        return taskRepository.findById(id);
+    public Task getTaskById(Integer id) {
+        return taskRepository.findById(id)
+            .orElseThrow(() -> new IllegalStateException(id + " not found."));
     }
 
     public List<Task> getAllTasks() {
@@ -26,5 +26,9 @@ public class TaskService {
 
     public void addTask(Task task) {
         taskRepository.save(task);
+    }
+
+    public void deleteTask(Integer id) {
+        taskRepository.deleteById(id);
     }
 }
