@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import uk.gov.hmcts.reform.dev.models.Task;
+import uk.gov.hmcts.reform.dev.models.TaskDTO;
 import uk.gov.hmcts.reform.dev.models.TaskService;
 
 @RestController
@@ -26,22 +26,22 @@ public class TaskController {
     }
 
     @GetMapping(value = "{id}", produces = "application/json")
-    public ResponseEntity<Task> getTaskById(@PathVariable int id) {
+    public ResponseEntity<TaskDTO> getTaskById(@PathVariable int id) {
         return ok(
             taskService.getTaskById(id)
         );
     }
 
     @GetMapping(value = "", produces = "application/json")
-    public ResponseEntity<List<Task>> getAllTasks() {
+    public ResponseEntity<List<TaskDTO>> getAllTasks() {
         return ok(
             taskService.getAllTasks()
         );
     }
 
     @PostMapping(value = "")
-    public void addTask(@RequestBody Task task) {
-        taskService.addTask(task);
+    public void addTask(@RequestBody TaskDTO taskDTO) {
+        taskService.addTask(taskDTO);
     }
     
     @DeleteMapping(value = "{id}")
