@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import uk.gov.hmcts.reform.dev.exception.NotFoundException;
+
 @Service
 public class TaskService {
 
@@ -16,9 +18,9 @@ public class TaskService {
         this.taskRepository = taskRepository;
     }
 
-    public TaskDTO getTaskById(Integer id) {
+    public TaskDTO getTaskById(Integer id) throws NotFoundException {
         Task task = taskRepository.findById(id)
-            .orElseThrow(() -> new IllegalStateException(id + " not found."));
+            .orElseThrow(() -> new NotFoundException("Error: Task " + id + " not found."));
 
         return task.toDTO();
     }
@@ -35,7 +37,11 @@ public class TaskService {
         taskRepository.save(taskDTO.toTask());
     }
 
-    public void deleteTask(Integer id) {
+    public void deleteTask(Integer id) throws NotFoundException {
+        if (!taskRepository.existsById(id)) {
+            throw new NotFoundException("Error: Task " + id + " not found.");
+        }
+        
         taskRepository.deleteById(id);
     }
 }
