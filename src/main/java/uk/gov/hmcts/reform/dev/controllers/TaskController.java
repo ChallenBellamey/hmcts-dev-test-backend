@@ -32,7 +32,7 @@ public class TaskController {
 
     private final TaskService taskService;
 
-    public TaskController (TaskService taskService) {
+    public TaskController(TaskService taskService) {
         this.taskService = taskService;
     }
 
@@ -60,11 +60,6 @@ public class TaskController {
         taskService.deleteTask(id);
     }
 
-    @ExceptionHandler(NotFoundException.class)
-    public ResponseEntity<String> exceptionHandler(NotFoundException exception){
-        return new ResponseEntity<>(exception.getMessage(), HttpStatus.NOT_FOUND);
-    }
-
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public Map<String, String> handleValidationExceptions(MethodArgumentNotValidException exception) {
@@ -79,8 +74,13 @@ public class TaskController {
         return errorMap;
     }
 
+    @ExceptionHandler(NotFoundException.class)
+    public ResponseEntity<String> exceptionHandler(NotFoundException exception) {
+        return new ResponseEntity<>(exception.getMessage(), HttpStatus.NOT_FOUND);
+    }
+
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<String> exceptionHandler(Exception exception){
+    public ResponseEntity<String> exceptionHandler(Exception exception) {
         return new ResponseEntity<>(exception.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }

@@ -17,7 +17,7 @@ wish.
     - ~~Add GET endpoint for all Tasks~~
 * ~~Add PATCH endpoint for Task status~~
 * ~~Add DELETE endpoint for Tasks~~
-* Implement input / output data validation
-* Implement error handling
+* ~~Implement input / output data validation~~
+* ~~Implement error handling~~
 * Implement unit testing
 * Document API endpoints

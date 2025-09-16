@@ -38,14 +38,12 @@ public class TaskDTO {
     @Future(message = "Due date must not have passed.")
     private LocalDateTime dueDateTime;
 
-    public Task toTask () {
-        return (
-            new Task (
-                this.getTitle(),
-                this.getDescription(),
-                this.getStatus(),
-                this.getDueDateTime()
-            )
+    public Task toTask() {
+        return new Task(
+            this.getTitle(),
+            this.getDescription(),
+            this.getStatus(),
+            this.getDueDateTime()
         );
     }
 }

@@ -28,14 +28,12 @@ public class Task {
     private @NonNull String status;
     private @NonNull LocalDateTime dueDateTime;
 
-    public TaskDTO toDTO () {
-        return (
-            new TaskDTO (
-                this.getTitle(),
-                this.getDescription(),
-                this.getStatus(),
-                this.getDueDateTime()
-            )
+    public TaskDTO toDTO() {
+        return new TaskDTO(
+            this.getTitle(),
+            this.getDescription(),
+            this.getStatus(),
+            this.getDueDateTime()
         );
     }
 }
