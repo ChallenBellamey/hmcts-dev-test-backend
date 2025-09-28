@@ -18,6 +18,8 @@ import lombok.AllArgsConstructor;
 public class TaskDTO {
 
     @Valid
+
+    private int id;
     
     @NotBlank(message = "Title is required.")
     @NotNull(message = "Title is required.")
@@ -40,6 +42,7 @@ public class TaskDTO {
 
     public Task toTask() {
         return new Task(
+            this.getId(),
             this.getTitle(),
             this.getDescription(),
             this.getStatus(),

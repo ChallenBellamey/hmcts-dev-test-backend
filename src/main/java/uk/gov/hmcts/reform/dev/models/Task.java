@@ -1,7 +1,7 @@
 package uk.gov.hmcts.reform.dev.models;
 
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.NonNull;
@@ -14,7 +14,7 @@ import jakarta.persistence.Id;
 import java.time.LocalDateTime;
 
 @NoArgsConstructor
-@RequiredArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
 @Entity
@@ -30,6 +30,7 @@ public class Task {
 
     public TaskDTO toDTO() {
         return new TaskDTO(
+            this.getId(),
             this.getTitle(),
             this.getDescription(),
             this.getStatus(),
