@@ -50,9 +50,10 @@ public class TaskController {
         );
     }
 
+    @ResponseStatus(HttpStatus.CREATED)
     @PostMapping(value = "")
-    public void addTask(@RequestBody @Valid TaskDTO taskDTO) {
-        taskService.addTask(taskDTO);
+    public TaskDTO addTask(@RequestBody @Valid TaskDTO taskDTO) {
+        return taskService.addTask(taskDTO).toDTO();
     }
     
     @DeleteMapping(value = "{id}")

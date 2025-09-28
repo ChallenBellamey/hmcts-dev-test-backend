@@ -33,8 +33,8 @@ public class TaskService {
             .collect(Collectors.toList());
     }
 
-    public void addTask(TaskDTO taskDTO) {
-        taskRepository.save(taskDTO.toTask());
+    public Task addTask(TaskDTO taskDTO) {
+        return taskRepository.save(taskDTO.toTask());
     }
 
     public void deleteTask(Integer id) throws NotFoundException {
