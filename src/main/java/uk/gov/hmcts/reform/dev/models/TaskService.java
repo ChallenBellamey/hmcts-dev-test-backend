@@ -37,6 +37,10 @@ public class TaskService {
         return taskRepository.save(taskDTO.toTask());
     }
 
+    public Task updateTask(TaskDTO taskDTO) {
+        return taskRepository.save(taskDTO.toTask());
+    }
+
     public void deleteTask(Integer id) throws NotFoundException {
         if (!taskRepository.existsById(id)) {
             throw new NotFoundException("Error: Task " + id + " not found.");

@@ -19,24 +19,24 @@ public class TaskDTO {
 
     @Valid
 
-    private int id;
+    public int id;
     
     @NotBlank(message = "Title is required.")
     @NotNull(message = "Title is required.")
     @Size(min = 1, max = 100, message = "Title is required to be between 1 and 100 characters.")
-    private String title;
+    public String title;
 
     @Size(max = 100, message = "Description is required to no more than 100 characters.")
-    private String description;
+    public String description;
 
     @NotBlank(message = "Status is required.")
     @NotNull(message = "Status is required.")
     @Size(min = 1, max = 10, message = "Status is required to be between 1 and 10 characters.")
-    private String status;
+    public String status;
 
     @NotNull(message = "Due date is required.")
     @Future(message = "Due date must not have passed.")
-    private LocalDateTime dueDateTime;
+    public LocalDateTime dueDateTime;
 
     public Task toTask() {
         return new Task(

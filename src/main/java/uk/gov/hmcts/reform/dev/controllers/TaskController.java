@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -54,6 +55,13 @@ public class TaskController {
     @PostMapping(value = "")
     public TaskDTO addTask(@RequestBody @Valid TaskDTO taskDTO) {
         return taskService.addTask(taskDTO).toDTO();
+    }
+
+    @PatchMapping(value = "")
+    public TaskDTO updateTask(@RequestBody @Valid TaskDTO taskDTO) throws NotFoundException {
+        taskService.getTaskById(taskDTO.id);
+
+        return taskService.updateTask(taskDTO).toDTO();
     }
     
     @DeleteMapping(value = "{id}")
