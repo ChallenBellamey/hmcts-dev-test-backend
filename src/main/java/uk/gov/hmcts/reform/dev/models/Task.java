@@ -24,7 +24,7 @@ public class Task {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private @NonNull String title;
-    private @NonNull String description;
+    private String description;
     private @NonNull String status;
     private @NonNull LocalDateTime dueDateTime;
 
