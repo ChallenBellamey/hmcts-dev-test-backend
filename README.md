@@ -9,15 +9,5 @@ can run the service in IntelliJ (or your IDE of choice) or however you normally 
 There is an example endpoint provided to retrieve an example of a case. You are free to add/remove fields as you
 wish.
 
-
-## To Do
-* ~~Add POST endpoint for Tasks~~
-* ~~Modify GET endpoint for Tasks~~
-    - ~~Add GET endpoint for Task by id~~
-    - ~~Add GET endpoint for all Tasks~~
-* ~~Add PATCH endpoint for Task status~~
-* ~~Add DELETE endpoint for Tasks~~
-* ~~Implement input / output data validation~~
-* ~~Implement error handling~~
-* Implement unit testing
-* Document API endpoints
+To do:
+- Testing (unfortunately did not have time before submission deadline but will continue to work on this)
